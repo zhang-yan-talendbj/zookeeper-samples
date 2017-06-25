@@ -1,12 +1,12 @@
 package com.nearinfinity.examples.zookeeper.group;
 
-import java.util.List;
-
 import com.nearinfinity.examples.zookeeper.util.ConnectionWatcher;
 import com.nearinfinity.examples.zookeeper.util.MoreZKPaths;
 import org.apache.zookeeper.KeeperException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
 
 public class ListGroup extends ConnectionWatcher {
 
@@ -31,8 +31,8 @@ public class ListGroup extends ConnectionWatcher {
 
     public static void main(String[] args) throws Exception {
         ListGroup listGroup = new ListGroup();
-        listGroup.connect(args[0]);
-        listGroup.list(args[1]);
+        listGroup.connect("localhost");
+        listGroup.list("zoo");
         listGroup.close();
     }
 

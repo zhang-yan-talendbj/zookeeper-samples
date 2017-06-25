@@ -1,12 +1,12 @@
 package com.nearinfinity.examples.zookeeper.confservice;
 
-import java.io.IOException;
-
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 public class ConfigWatcher implements Watcher {
 
@@ -20,6 +20,7 @@ public class ConfigWatcher implements Watcher {
     }
 
     public void displayConfig() throws InterruptedException, KeeperException {
+        //use ConfigWatcher as watcher
         String value = store.read(ConfigUpdater.PATH, this);
         LOG.info("Read {} as {}", ConfigUpdater.PATH, value);
     }
@@ -41,7 +42,7 @@ public class ConfigWatcher implements Watcher {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException, KeeperException {
-        ConfigWatcher watcher = new ConfigWatcher(args[0]);
+        ConfigWatcher watcher = new ConfigWatcher("localhost");
         watcher.displayConfig();
 
         Thread.sleep(Long.MAX_VALUE);

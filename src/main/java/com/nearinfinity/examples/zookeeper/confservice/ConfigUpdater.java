@@ -1,13 +1,13 @@
 package com.nearinfinity.examples.zookeeper.confservice;
 
-import java.io.IOException;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
-
 import com.nearinfinity.examples.zookeeper.util.MoreZKPaths;
 import org.apache.zookeeper.KeeperException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class ConfigUpdater {
 
@@ -35,7 +35,7 @@ public class ConfigUpdater {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException, KeeperException {
-        ConfigUpdater updater = new ConfigUpdater(args[0]);
+        ConfigUpdater updater = new ConfigUpdater("localhost");
         updater.run();
     }
 

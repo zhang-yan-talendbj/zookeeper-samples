@@ -23,8 +23,8 @@ public class JoinGroup extends ConnectionWatcher {
 
     public static void main(String[] args) throws Exception {
         JoinGroup joinGroup = new JoinGroup();
-        joinGroup.connect(args[0]);
-        joinGroup.join(args[1], args[2]);
+        joinGroup.connect("localhost");
+        joinGroup.join("zoo", "cat3");
 
         // stay alive until process is killed or thread is interrupted
         Thread.sleep(Long.MAX_VALUE);
